@@ -1,0 +1,92 @@
+a, a:visited {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #606060 !important;
+}
+
+/*-------------------------
+	The menu
+--------------------------*/
+nav {
+  position: fixed;
+  display: inline-block;
+  background-color: #5597b4;
+  width: 100%;
+}
+
+nav a {
+  display: inline-block;
+  padding: 18px 30px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none !important;
+  line-height: 1;
+  text-transform: uppercase;
+  background-color: transparent;
+  -webkit-transition: background-color 0.25s;
+  -moz-transition: background-color 0.25s;
+  transition: background-color 0.25s;
+}
+
+nav.home .home,
+nav.generator .generator,
+nav.manager .manager {
+  height: 100%;
+  color: #606060;
+}
+
+textarea {
+  width: 100%;
+  max-width: 500px;
+  height: 100px;
+}
+
+img {
+  width: 10%;
+  height: 5%;
+}
+
+.title {
+  font-size: 40px;
+  color: #fff !important;
+}
+
+.title:hover {
+  color: #fff !important;
+}
+
+.center {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 90%;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: #5597b4;
+  border-radius: 7px;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+h1 {
+  text-align: center;
+  color: #fff !important;
+}
+
+p {
+  text-align: center;
+  color: #fff !important;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+button {
+  margin: 10px !important;
+}

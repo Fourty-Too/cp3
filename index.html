@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="./styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Passwordinator</title>
+</head>
+
+<body>
+
+  <div id="app" v-bind:style="{'width': '100%', 'height': '100%'}">
+    <nav v-bind:class="active" v-on:click.prevent>
+
+      <!-- When a link in the menu is clicked, we call the makeActive method,
+        defined in the JavaScript Vue instance. It will change the value of "active". -->
+      <a id="title" href="#">
+        <span><img src="./images/images.png"></span>
+        Passwordinator
+      </a>
+      <a href="#" class="home" v-on:click="makeActive('home')">Home</a>
+      <a href="#" class="generator" v-on:click="makeActive('generator')">Password Generator</a>
+      <a href="#" class="manager" v-on:click="makeActive('manager')">Password Manager</a>
+    </nav>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <div v-if="active == 'home'">
+      <div class="center">
+        <h1>Welcome to Passwordinator!</h1>
+        <br />
+        <p>Use our password generator to generate new, secure passwords, and use our
+          password manager to keep track of your passwords and manage your accounts</p>
+        <br />
+        <br />
+
+        <p>
+          <button class="btn btn-secondary" v-on:click="goToGenerator">Password Generator</button>
+          <button class="btn btn-secondary" v-on:click="goToManager">Password Manager</button>
+        </p>
+      </div>
+    </div>
+    <div v-else-if="active == 'generator'">
+      <p>
+        <button v-on:click="previousComic">Previous</button>
+        <button v-on:click="nextComic">Next</button>
+        <button v-on:click="firstComic">First</button>
+        <button v-on:click="lastComic">Last</button>
+        <button v-on:click="randomComic">Random</button>
+      </p>
+      <h2>{{current.safe_title}}</h2>
+      <img v-bind:src="current.img" v-bind:alt="current.alt">
+      <p>{{current.alt}}</p>
+      <p><i>#{{current.num}}, drawn on {{current.day}} {{month}} {{current.year}}</i></p>
+      <star-rating v-bind:increment="0.5" v-bind:show-rating="false" active-color="red" @rating-selected="setRating"></star-rating>
+      <p>Average Rating: {{averageRating}} </p>
+      <h3>Add a Comment</h3>
+      <form v-on:submit.prevent="addComment">
+        <input v-model="addedName" placeholder="Name"></p>
+        <textarea v-model="addedComment"></textarea>
+        <br />
+        <button type="submit">Comment</button>
+      </form>
+      <h3>Comments</h3>
+      <div v-for="comment in comments[number]">
+        <hr>
+        <p>{{comment.text}}</p>
+        <p><i>-- {{comment.author}}, Posted {{comment.date.format('MMMM Do YYYY, h:mm:ss a')}}</i></p>
+      </div>
+    </div>
+    <div v-else>
+      <h2>Third Page</h2>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
+    <script src="https://unpkg.com/vue-star-rating/dist/star-rating.min.js"></script>
+    <script src="/script.js"></script>
+
+</body>
+
+</html>
