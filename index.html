@@ -41,6 +41,7 @@
 
     <div v-if="active == 'home'">
       <div class="center">
+        <br />
         <h1>Welcome to Passwordinator!</h1>
         <br />
         <p>Use our password generator to generate new, secure passwords, and use our
@@ -55,6 +56,27 @@
       </div>
     </div>
     <div v-else-if="active == 'generator'">
+      <div class="center">
+        <br />
+        <h1>Password Generator</h1>
+        <br />
+        <p>Click the button below to generate a random, secure password</p>
+        <br />
+        <br />
+
+        <p>
+          <button class="btn btn-secondary" v-on:click="generatePassword">Generate Password</button>
+        </p>
+
+        <div v-if="password == ''">
+        </div>
+        <div v-else>
+          <h1>{{password}}</h1>
+          <br />
+        </div>
+      </div>
+    </div>
+    <div v-else>
       <p>
         <button v-on:click="previousComic">Previous</button>
         <button v-on:click="nextComic">Next</button>
@@ -82,9 +104,6 @@
         <p><i>-- {{comment.author}}, Posted {{comment.date.format('MMMM Do YYYY, h:mm:ss a')}}</i></p>
       </div>
     </div>
-    <div v-else>
-      <h2>Third Page</h2>
-    </div>
 
     <br />
     <br />
@@ -96,7 +115,7 @@
     <script src="https://unpkg.com/vue"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
     <script src="https://unpkg.com/vue-star-rating/dist/star-rating.min.js"></script>
-    <script src="/script.js"></script>
+    <script src="./script.js"></script>
 
 </body>
 

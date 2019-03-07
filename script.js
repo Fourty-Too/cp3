@@ -3,10 +3,14 @@ Vue.component('star-rating', VueStarRating.default);
 let app = new Vue({
   el: '#app',
   data: {
-    styleObject: {
-      color: 'red',
-      fontSize: '13px'
-    },
+    active: "home",
+    password: '',
+
+
+
+
+
+
     number: '',
     max: '',
     current: {
@@ -20,7 +24,6 @@ let app = new Vue({
     addedDate: '',
     comments: {},
     ratings: {},
-    active: "home",
   },
   computed: {
     month() {
@@ -66,6 +69,33 @@ let app = new Vue({
   },
 
   methods: {
+    makeActive(item){
+      // When a model is changed, the view will be automatically updated.
+      this.active = item;
+      this.password = '';
+    },
+    goToGenerator() {
+      this.active = "generator";
+      this.password = '';
+    },
+    goToManager() {
+      this.active = "manager";
+      this.password = '';
+    },
+    generatePassword() {
+      let CharacterSet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!%&*$#';
+      let password = '';
+
+      for(let i=0; i < 10; i++) {
+        password += CharacterSet.charAt(Math.floor(Math.random() * CharacterSet.length));
+      }
+      this.password = password;
+    },
+
+
+
+
+
     async xkcd() {
       try {
         this.loading = true;
@@ -78,12 +108,6 @@ let app = new Vue({
         console.log(error);
         this.number = this.max;
       }
-    },
-    goToGenerator() {
-      this.active = "generator";
-    },
-    goToManager() {
-      this.active = "manager";
     },
     previousComic() {
       this.number = this.current.num - 1;
@@ -135,9 +159,5 @@ let app = new Vue({
       this.ratings[this.number].sum += rating;
       this.ratings[this.number].total += 1;
     },
-    makeActive(item){
-      // When a model is changed, the view will be automatically updated.
-      this.active = item;
-    }
   }
 });
