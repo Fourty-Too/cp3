@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -124,7 +124,7 @@
         <div v-if="passwordEnter">
           <br />
           <br />
-          <form v-on:submit.prevent="addPassword">
+          <form v-on:submit.prevent="addPassword" style="width: 50%; margin-left: auto; margin-right: auto;">
             <p>Username: </p>
             <p><input v-model="user" type="text" /></p>
             <p>Password: </p>
@@ -141,10 +141,11 @@
         <br />
 
         <p>
-          <button type="button" class="btn btn-primary btn-circle" style="border-radius: 50%" v-on:click="showEnter">+</button>
+          <button type="button" class="btn btn-primary btn-circle" style="border-radius: 50%; background-color: #007bff !important; text-align: center; padding: 0px; padding-bottom: 2px important!;" v-on:click="showEnter">+</button>
         </p>
-
       </div>
+      <br />
+      <br />
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
