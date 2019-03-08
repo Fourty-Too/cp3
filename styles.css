@@ -73,6 +73,35 @@ img {
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 24px;
+  line-height: 1.33;
+  background-color: #fff !important;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+  background-color: #fff !important;
+}
+
+.columns {
+  text-align: center;
+  display: inline-flex;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 h1 {
   text-align: center;
   color: #fff !important;
@@ -89,4 +118,8 @@ p {
 
 button {
   margin: 10px !important;
+}
+
+form {
+  display: inline-block;
 }

@@ -27,10 +27,6 @@
     </nav>
     <br />
     <br />
-    <br />
-    <br />
-    <br />
-    <br />
 
     <br />
     <br />
@@ -77,38 +73,79 @@
       </div>
     </div>
     <div v-else>
-      <p>
-        <button v-on:click="previousComic">Previous</button>
-        <button v-on:click="nextComic">Next</button>
-        <button v-on:click="firstComic">First</button>
-        <button v-on:click="lastComic">Last</button>
-        <button v-on:click="randomComic">Random</button>
-      </p>
-      <h2>{{current.safe_title}}</h2>
-      <img v-bind:src="current.img" v-bind:alt="current.alt">
-      <p>{{current.alt}}</p>
-      <p><i>#{{current.num}}, drawn on {{current.day}} {{month}} {{current.year}}</i></p>
-      <star-rating v-bind:increment="0.5" v-bind:show-rating="false" active-color="red" @rating-selected="setRating"></star-rating>
-      <p>Average Rating: {{averageRating}} </p>
-      <h3>Add a Comment</h3>
-      <form v-on:submit.prevent="addComment">
-        <input v-model="addedName" placeholder="Name"></p>
-        <textarea v-model="addedComment"></textarea>
+      <div class="center">
         <br />
-        <button type="submit">Comment</button>
-      </form>
-      <h3>Comments</h3>
-      <div v-for="comment in comments[number]">
-        <hr>
-        <p>{{comment.text}}</p>
-        <p><i>-- {{comment.author}}, Posted {{comment.date.format('MMMM Do YYYY, h:mm:ss a')}}</i></p>
+        <h1>Password Manager</h1>
+        <br />
+        <p>Keep track of all of your passwords</p>
+        <br />
+        <br />
+        <div class="center" style="background-color: #606060 !important">
+          <br />
+          <div v-if="passwordsEmpty">
+            <p>No passwords found.</p>
+          </div>
+          <div v-else>
+            <div class="columns" style="text-align: left; display: inline-flex; width: 90%;">
+              <div style="width: 10%">
+              </div>
+              <div style="width: 33%; color: #fff;">
+                Username
+              </div>
+              <div style="width: 33%; color: #fff;">
+                Password
+              </div>
+              <div style="width: 33%; color: #fff;">
+                Website
+              </div>
+            </div>
+            <hr style="border-color: #fff !important; width: 90% !important" />
+            <div v-for="password in passwords[1]">
+              <div class="columns" style="text-align: left; display: inline-flex; width: 90%;">
+                <div style="width: 10%">
+                </div>
+                <div style="width: 33%; color: #fff;">
+                  {{password.user}}
+                </div>
+                <div style="width: 33%; color: #fff;">
+                  {{password.pass}}
+                </div>
+                <div style="width: 33%; color: #fff;">
+                  {{password.site}}
+                </div>
+              </div>
+              <br />
+            </div>
+            <br />
+          </div>
+        </div>
+
+
+        <div v-if="passwordEnter">
+          <br />
+          <br />
+          <form v-on:submit.prevent="addPassword">
+            <p>Username: </p>
+            <p><input v-model="user" type="text" /></p>
+            <p>Password: </p>
+            <p><input v-model="pass" type="text" /></p>
+            <p>Website: </p>
+            <p><input v-model="site" type="text" /></p>
+            <p><input type="submit" class="btn btn-secondary"></p>
+          </form>
+        </div>
+        <div v-else>
+        </div>
+
+        <br />
+        <br />
+
+        <p>
+          <button type="button" class="btn btn-primary btn-circle" style="border-radius: 50%" v-on:click="showEnter">+</button>
+        </p>
+
       </div>
     </div>
-
-    <br />
-    <br />
-    <br />
-
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
